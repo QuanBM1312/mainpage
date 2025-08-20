@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
           </span>
         </h1>
       </div>
-      <p className="box-border absolute left-2/4 p-0 m-0 text-lg font-medium leading-7 text-center text-gray-500 -translate-x-2/4 h-[52px] top-[410px] w-[540px] max-md:text-base max-md:leading-6 max-md:max-w-[480px] max-md:w-[90%] max-sm:text-sm max-sm:leading-5 max-sm:top-[300px] max-sm:w-[95%]">
+      <p className="box-border absolute left-2/4 p-0 max-md:px-4 text-lg font-medium leading-7 text-center text-gray-500 -translate-x-2/4 h-[52px] top-[410px] w-[540px] max-md:text-base max-md:leading-6 max-md:max-w-[480px] max-md:w-[90%] max-sm:text-sm max-sm:leading-5 max-sm:top-[300px] max-sm:w-[95%]">
         Finful đặt lợi ích và mong muốn tài chính của bạn lên hàng đầu, giúp bạn
         đạt được các mục tiêu tài chính quan trọng
       </p>

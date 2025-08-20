@@ -24,7 +24,7 @@ const ServicesSection: React.FC = () => {
       description:
         "Giúp các tổ chức tài chính xây dựng chương trình giáo dục về đa dạng chủ đề tài chính, hướng tới thay đổi hành vi của người dùng, qua đó tạo tác động tích cực tới kết quả kinh doanh.",
       buttonText: "Truy cập Giáo dục tài chính cho doanh nghiệp",
-      link: "https://global.finful.co/sign-in?redirect_url=https%3A%2F%2Fglobal.finful.co%2Fcourse%2F654b4b6c919baafbb5c4e975%3Ffbclid%3DIwY2xjawGXuPtleHRuA2FlbQIxMAABHVmJVUh1h6PjYXMWcGrc4Rk4_QmPn22qZimfZLo3aj_a-POutj-ma8d90w_aem_j78gg5nee3mqU6GYcU4ItAp", // URL đích
+      link: "https://education.finful.co/", // URL đích
     },
     {
       id: "personal-education",
@@ -42,7 +42,7 @@ const ServicesSection: React.FC = () => {
   );
 
   return (
-    <section className="box-border flex flex-col items-center justify-center gap-14 pt-20 mx-auto max-w-[1226px] max-md:px-5 max-sm:px-4 max-sm:mt-16">
+    <section className="box-border flex flex-col items-center justify-center gap-14 pt-10 mx-auto max-w-[1226px] max-md:px-5 max-sm:px-4 max-sm:mt-16">
       <header className="box-border flex flex-col items-center gap-1">
         <h2 className="box-border self-stretch text-5xl font-semibold tracking-tighter leading-10 text-center text-neutral-800 max-md:text-4xl max-md:leading-10 max-sm:text-3xl max-sm:leading-8">
           Chúng tôi giúp tổ chức &amp; cá nhân
@@ -52,8 +52,9 @@ const ServicesSection: React.FC = () => {
         </h2>
       </header>
       <div className="box-border self-stretch h-px bg-gray-300" />
-      <div className="box-border flex gap-8 w-full h-[542px] max-md:flex-col max-md:gap-10 max-md:h-auto">
-        <div className="box-border flex flex-col items-start h-[542px] w-[547px] max-md:w-full">
+
+      <div className="hidden md:flex gap-8 w-full h-[542px]">
+        <div className="box-border flex flex-col items-start h-[542px] w-[547px]">
           <div className="box-border gap-7 flex flex-col self-stretch items-start">
             {services.map((service) => {
               const isActive = activeService === service.id;
@@ -90,7 +91,7 @@ const ServicesSection: React.FC = () => {
                   </div>
                   {isActive && (
                     <div className="box-border flex flex-col gap-4 items-start ml-9 max-sm:ml-8 max-sm:w-full">
-                      <p className="box-border self-stretch text-lg pr-7` tracking-tight leading-6 opacity-80 max-sm:text-base max-sm:leading-6">
+                      <p className="box-border self-stretch text-lg pr-7 tracking-tight leading-6 opacity-80 max-sm:text-base max-sm:leading-6">
                         {service.description}
                       </p>
                     </div>
@@ -99,15 +100,15 @@ const ServicesSection: React.FC = () => {
               );
             })}
           </div>
-          <Link href={activeServiceData?.link || "#"} target="_blank" className="w-full mt-auto">
-            <button className="box-border flex gap-2.5 justify-center items-center self-stretch p-2.5 rounded-3xl shadow-sm cursor-pointer h-[47px] bg-cyan-600 w-full">
-              <span className="box-border text-base font-medium tracking-tight text-center text-white">
+          <Link href={activeServiceData?.link || "#"} target="_blank" className="w-full mt-auto max-md:mt-2">
+            <button className="flex justify-center items-center w-full p-2.5 bg-gradient-to-r from-[#232B35] to-[#656A71] text-white font-bold rounded-3xl shadow-sm text-base">
+              <span className="text-base font-medium tracking-tight text-center text-white max-md:px-7">
                 {activeServiceData?.buttonText}
               </span>
             </button>
           </Link>
         </div>
-        <div className="box-border relative bg-gray-100 rounded-xl h-[542px] w-[647px] p-3 max-md:p-2 max-md:w-full max-md:h-auto">
+        <div className="box-border relative bg-gray-100 rounded-xl h-[542px] w-[647px] p-3">
           {activeService === "home-planner" && (
             <div className="flex flex-col w-full h-full gap-4">
               <img
@@ -158,6 +159,105 @@ const ServicesSection: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* GIAO DIỆN MOBILE: Chỉ hiển thị trên màn hình nhỏ hơn 'md' */}
+      <div className="w-full md:hidden flex flex-col gap-4">
+        {services.map((service) => {
+          const isActive = activeService === service.id;
+          return (
+            <React.Fragment key={service.id}>
+              <article
+                onClick={() => setActiveService(isActive ? "" : service.id)}
+                className={`flex flex-col p-6 rounded-xl transition-all duration-300 cursor-pointer ${
+                  isActive
+                    ? "bg-cyan-600 text-white"
+                    : "bg-gray-100 text-zinc-800"
+                }`}
+              >
+                {/* Header của accordion (Icon, Title, Mũi tên) */}
+                <div className="flex items-center justify-between w-full">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={service.icon}
+                      alt="Task icon"
+                      className={`w-6 h-6 aspect-square ${
+                        isActive ? "brightness-0 invert" : "brightness-0"
+                      }`}
+                    />
+                    <h3 className="text-lg font-semibold leading-6">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c85af886dd5e81fdc8834dd08a410fe2d44ac342?width=42"
+                    alt="Arrow icon"
+                    className={`h-[21px] w-[21px] transition-transform duration-300 ${
+                      isActive ? "transform rotate-180" // Giữ nguyên logic mũi tên
+                      : "brightness-0" 
+                    }`}
+                  />
+                </div>
+
+                {/* Phần mô tả vẫn có thể nằm bên trong article nếu muốn */}
+                {isActive && (
+                  <p className="mt-4 text-base leading-6 opacity-80 ml-9">
+                    {service.description}
+                  </p>
+                )}
+              </article>
+
+              {/* Nội dung mở rộng bên ngoài Article */}
+              {isActive && (
+                <div className="mt-4 flex flex-col gap-4">
+                  {/* Khối hình ảnh tương ứng */}
+                  <div className="space-y-4">
+                    {service.id === "home-planner" && (
+                      <div className="box-border relative bg-gray-100 rounded-xl w-full p-3">
+                        <div className="flex flex-col w-full h-full gap-4">
+                          <img
+                            src="/Frame 1321315865.png"
+                            alt="Tổng quan kế hoạch"
+                            className="w-full h-auto rounded-xl shadow-sm"
+                          />
+                          <img
+                            src="/Group 1000002581.png"
+                            alt="Xem trước kế hoạch"
+                            className="w-full h-auto rounded-xl shadow-sm"
+                          />
+                        </div>
+                      </div>
+                    )}
+                    {service.id === "corporate-education" && (
+                      <div className="box-border relative bg-gray-100 rounded-xl w-full p-3">
+                        <div className="flex flex-col w-full h-full gap-4">
+                          <img src="/Frame 1321315876.png" alt="Kế hoạch doanh nghiệp" className="w-full rounded-xl shadow-sm"/>
+                          <img src="/Frame 1321315877.png" alt="Kế hoạch doanh nghiệp 2" className="w-full rounded-xl shadow-sm"/>
+                        </div>
+                      </div>
+                    )}
+                    {service.id === "personal-education" && (
+                      <div className="box-border relative bg-gray-100 rounded-xl w-full p-3">
+                        <div className="flex flex-col w-full h-full gap-4">
+                          <img src="/Frame 1321315874.png" alt="Kế hoạch cá nhân" className="w-full rounded-xl shadow-sm"/>
+                          <img src="/Frame 1321315875.png" alt="Kế hoạch cá nhân 2" className="w-full rounded-xl shadow-sm"/>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Nút bấm */}
+                  <Link href={service.link || "#"} target="_blank" className="w-full mt-2">
+                    <button className="flex justify-center items-center w-full p-2.5 bg-gradient-to-r from-[#232B35] to-[#656A71] text-white font-bold rounded-3xl shadow-sm text-base">
+                      <span>{service.buttonText}</span>
+                    </button>
+                  </Link>
+                </div>
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
+
     </section>
   );
 };

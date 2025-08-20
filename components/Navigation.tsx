@@ -8,16 +8,16 @@ const menuItems = [
     id: "cong-cu",
     title: "Công cụ tài chính",
     children: [
-      { title: "Lập kế hoạch mua nhà", href: "#" },
-      { title: "Phân tích chứng khoán", href: "#" },
+      { title: "Lập kế hoạch mua nhà", href: "https://muanha.finful.co/" },
+      { title: "Phân tích chứng khoán", href: "https://global.finful.co/sign-in?redirect_url=https%3A%2F%2Fglobal.finful.co%2Fcourse%2F654b4b6c919baafbb5c4e975%3Ffbclid%3DIwY2xjawGXuPtleHRuA2FlbQIxMAABHVmJVUh1h6PjYXMWcGrc4Rk4_QmPn22qZimfZLo3aj_a-POutj-ma8d90w_aem_j78gg5nee3mqU6GYcU4ItA" },
     ],
   },
   {
     id: "giao-duc",
     title: "Giáo dục tài chính",
     children: [
-      { title: "Thư viện tài chính cá nhân", href: "#" },
-      { title: "Chương trình cho doanh nghiệp", href: "#" },
+      { title: "Thư viện tài chính cá nhân", href: "https://app.finful.co/sign-in?redirect_url=https%3A%2F%2Fapp.finful.co%2Fcourse%2F65fb0e91feebb569c2191340%3Ffbclid%3DIwY2xjawGXuQ9leHRuA2FlbQIxMAABHQz4oKhOcoGY-vfIIYNQ0Bi8Grznu_ZpfIf_M0V_mZ5CF8qkodGIA2rAcQ_aem_ZUu0TxwVY7QuOmaOqMPvDA" },
+      { title: "Chương trình cho doanh nghiệp", href: "https://education.finful.co/" },
     ],
   },
   { id: "ve-finful", title: "Về Finful", href: "#" },
@@ -34,13 +34,13 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav className="w-full bg-gray-50 py-4 border-b">
+    <nav className="w-full bg-gray-50 py-4 border-b relative z-10">
       <img
         src="https://api.builder.io/api/v1/image/assets/TEMP/ba9eabe8ab8575c455d234f4557ff57f96a4f6aa?width=2698"
         alt="Hero background"
         className="box-border object-cover absolute size-full"
       />
-      <div className="relative flex justify-between items-center max-w-full px-7 mx-auto max-md:px-2">
+      <div className="relative flex justify-between items-center max-w-full mx-auto px-4">
         <Link href="/">
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/1ba2049967e7298ab7497b6e05b664cf34fd18b1?width=230"
@@ -54,7 +54,7 @@ const Navigation: React.FC = () => {
           {menuItems.map((item) => (
             <div
               key={item.id}
-              className="relative"
+              className="relative h-11 flex items-center" // Đặt chiều cao cố định và căn giữa
               onMouseEnter={() => item.children && setOpenDropdown(item.id)}
               onMouseLeave={() => item.children && setOpenDropdown(null)}
             >
@@ -67,12 +67,14 @@ const Navigation: React.FC = () => {
                 )}
               </Link>
               {item.children && openDropdown === item.id && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-2 z-20">
-                  {item.children.map((child, index) => (
-                    <Link key={index} href={child.href} className="block px-4 py-2 text-slate-700 hover:bg-gray-100">
-                      {child.title}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-2 w-64">
+                  <div className="bg-white rounded-lg shadow-xl py-2 z-20">
+                    {item.children.map((child, index) => (
+                      <Link key={index} href={child.href} className="block px-4 py-2 text-slate-700 hover:bg-gray-100">
+                        {child.title}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -99,7 +101,7 @@ const Navigation: React.FC = () => {
               {menuItems.map((item) => (
                 <div key={item.id} className="w-full">
                   <div className="flex items-center justify-between w-full">
-                    <Link href={item.href || "#"} className="text-base font-semibold text-slate-500 hover:text-cyan-600">
+                    <Link href={item.href || "#"} target="_blank" className="text-base font-semibold text-slate-500 hover:text-cyan-600">
                       {item.title}
                     </Link>
                     {item.children && (

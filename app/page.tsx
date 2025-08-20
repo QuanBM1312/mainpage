@@ -3,7 +3,7 @@ import Homepage from "@/components/Homepage";
 import React from "react";
 function FinancialPlanningPage() {
   return (
-    <main className="flex flex-col px-30 bg-white bg-blend-normal">
+    <main className="flex flex-col bg-white bg-blend-normal">
       <Homepage />
     </main>
   );
