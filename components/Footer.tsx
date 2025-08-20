@@ -10,7 +10,7 @@ function Footer() {
         <div className="flex-shrink-0 w-full md:w-auto">
           <img
             // Thay bằng logo SVG hoặc URL ảnh mới của bạn
-            src="/FinfulLogo.png"
+            src="/1 9.png"
             className="w-32 h-auto"
             alt="Finful logo"
           />

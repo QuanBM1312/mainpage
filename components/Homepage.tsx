@@ -12,9 +12,9 @@ const Homepage: React.FC = () => {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       />
-      <main className="box-border p-0 m-0 w-full bg-white flex flex-col mb-5 items-center">
-        <HeroSection />
-        <Navigation />
+      <Navigation />
+      <HeroSection />
+      <main className="box-border p-0 m-0 w-full bg-white flex flex-col mb-40 items-center">
         <VisionMissionCards />
         <ServicesSection />
       </main>

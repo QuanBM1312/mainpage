@@ -42,26 +42,26 @@ const ServicesSection: React.FC = () => {
   );
 
   return (
-    <section className="box-border flex flex-col items-center justify-center w-full gap-14 px-16 py-0 mx-auto mt-52 mb-0 max-w-[1226px] max-md:px-5 max-md:py-0 max-md:mt-36 max-sm:px-4 max-sm:py-0 max-sm:mt-24">
-      <header className="box-border flex flex-col items-center gap-1.5 p-0 m-0">
-        <h2 className="box-border self-stretch p-0 m-0 text-5xl font-semibold tracking-tighter leading-10 text-center text-neutral-800 max-md:text-4xl max-md:leading-10 max-sm:text-3xl max-sm:leading-8">
+    <section className="box-border flex flex-col items-center justify-center gap-14 pt-20 mx-auto max-w-[1226px] max-md:px-5 max-sm:px-4 max-sm:mt-16">
+      <header className="box-border flex flex-col items-center gap-1">
+        <h2 className="box-border self-stretch text-5xl font-semibold tracking-tighter leading-10 text-center text-neutral-800 max-md:text-4xl max-md:leading-10 max-sm:text-3xl max-sm:leading-8">
           Chúng tôi giúp tổ chức &amp; cá nhân
         </h2>
-        <h2 className="box-border self-stretch p-0 m-0 text-5xl font-semibold tracking-tighter leading-none text-center bg-clip-text h-[59px] max-md:text-4xl max-md:leading-10 max-sm:text-3xl max-sm:leading-8">
+        <h2 className="box-border self-stretch text-5xl bg-gradient-to-r from-cyan-400 to-teal-600 bg-clip-text text-transparent font-semibold tracking-tighter leading-none text-center bg-clip-text h-[59px] max-md:text-4xl max-md:leading-10 max-sm:text-3xl max-sm:leading-8">
           đạt được mục tiêu tài chính
         </h2>
       </header>
-      <div className="box-border self-stretch p-0 m-0 h-px bg-gray-300" />
-      <div className="box-border flex gap-8 p-0 m-0 w-full h-[542px] max-md:flex-col max-md:gap-10 max-md:h-auto">
-        <div className="box-border flex flex-col gap-12 items-start p-0 m-0 h-[542px] w-[547px] max-md:w-full">
-          <div className="box-border flex flex-col self-stretch gap-4 items-start p-0 m-0">
+      <div className="box-border self-stretch h-px bg-gray-300" />
+      <div className="box-border flex gap-8 w-full h-[542px] max-md:flex-col max-md:gap-10 max-md:h-auto">
+        <div className="box-border flex flex-col items-start h-[542px] w-[547px] max-md:w-full">
+          <div className="box-border gap-7 flex flex-col self-stretch items-start">
             {services.map((service) => {
               const isActive = activeService === service.id;
               return (
                 <article
                   key={service.id}
                   onClick={() => setActiveService(service.id)}
-                  className={`box-border flex relative flex-col gap-2.5 items-start self-stretch px-6 py-7 m-0 rounded-xl cursor-pointer transition-all duration-300 ${
+                  className={`box-border flex relative flex-col gap-2.5 items-start self-stretch px-6 py-7 rounded-xl cursor-pointer transition-all duration-300 ${
                     isActive
                       ? "bg-cyan-600 text-white"
                       : "bg-gray-100 text-zinc-800"
@@ -72,25 +72,25 @@ const ServicesSection: React.FC = () => {
                       <img
                         src={service.icon}
                         alt="Task icon"
-                        className={`box-border p-0 m-0 w-6 h-6 aspect-[1/1] ${
+                        className={`box-border w-6 h-6 aspect-[1/1] ${
                           isActive ? "brightness-0 invert" : "brightness-0"
                         }`}
                       />
-                      <h3 className="box-border p-0 m-0 text-2xl font-semibold tracking-tight leading-10 max-sm:text-lg max-sm:leading-6">
+                      <h3 className="box-border text-2xl font-semibold tracking-tight leading-10 max-sm:text-lg max-sm:leading-6">
                         {service.title}
                       </h3>
                     </div>
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/c85af886dd5e81fdc8834dd08a410fe2d44ac342?width=42"
                       alt="Arrow icon"
-                      className={`box-border p-0 m-0 aspect-[1/1] h-[21px] w-[21px] transition-all duration-300 ${
+                      className={`box-border aspect-[1/1] h-[21px] w-[21px] transition-all duration-300 ${
                         isActive ? "" : "transform rotate-180 brightness-0"
                       }`}
                     />
                   </div>
                   {isActive && (
-                    <div className="box-border flex flex-col gap-4 items-start p-0 m-0 ml-9 max-sm:ml-8 max-sm:w-full">
-                      <p className="box-border self-stretch p-0 m-0 text-lg tracking-tight leading-6 opacity-80 max-sm:text-base max-sm:leading-6">
+                    <div className="box-border flex flex-col gap-4 items-start ml-9 max-sm:ml-8 max-sm:w-full">
+                      <p className="box-border self-stretch text-lg pr-7` tracking-tight leading-6 opacity-80 max-sm:text-base max-sm:leading-6">
                         {service.description}
                       </p>
                     </div>
@@ -99,15 +99,15 @@ const ServicesSection: React.FC = () => {
               );
             })}
           </div>
-          <Link href={activeServiceData?.link || "#"} target="_blank" className="w-full">
-            <button className="box-border flex gap-2.5 justify-center items-center self-stretch p-2.5 m-0 rounded-3xl shadow-sm cursor-pointer h-[47px] bg-cyan-600 w-full">
-              <span className="box-border p-0 m-0 text-base font-medium tracking-tight text-center text-white">
+          <Link href={activeServiceData?.link || "#"} target="_blank" className="w-full mt-auto">
+            <button className="box-border flex gap-2.5 justify-center items-center self-stretch p-2.5 rounded-3xl shadow-sm cursor-pointer h-[47px] bg-cyan-600 w-full">
+              <span className="box-border text-base font-medium tracking-tight text-center text-white">
                 {activeServiceData?.buttonText}
               </span>
             </button>
           </Link>
         </div>
-        <div className="box-border relative p-0 m-0 bg-gray-100 rounded-xl h-[542px] w-[647px] max-md:p-2 max-md:w-full max-md:h-auto">
+        <div className="box-border relative bg-gray-100 rounded-xl h-[542px] w-[647px] p-3 max-md:p-2 max-md:w-full max-md:h-auto">
           {activeService === "home-planner" && (
             <div className="flex flex-col w-full h-full gap-4">
               <img
@@ -115,38 +115,44 @@ const ServicesSection: React.FC = () => {
                 alt="Tổng quan kế hoạch"
                 className="w-full h-auto rounded-xl shadow-sm"
               />
-              <img
-                src="/Group 1000002581.png"
-                alt="Xem trước kế hoạch"
-                className="w-full h-auto rounded-xl shadow-sm"
-              />
-              <div className="flex items-center justify-between px-6 py-2 mt-auto bg-white rounded-lg">
-                <button className="text-sm italic font-light tracking-tight cursor-pointer text-zinc-800">
-                  Xem báo cáo đầy đủ
-                </button>
-                <span className="text-sm italic font-light tracking-tight text-zinc-800">
-                  &gt;&gt;
-                </span>
-              </div>
+              <article className="relative">
+                <img
+                  src="/Group 1000002581.png"
+                  alt="Xem trước kế hoạch"
+                  className="w-full h-auto rounded-xl shadow-sm"
+                />
+              </article>
             </div>
           )}
           {activeService === "corporate-education" && (
-            <div className="flex flex-col w-full h-full gap-4 p-8">
-              <div className="w-full h-1/2 bg-white rounded-lg"></div>
-              <div className="w-full h-1/2 bg-white rounded-lg"></div>
+            <div className="flex flex-col w-full h-full gap-4 px-2 py-2">
+              <img
+                src="/Frame 1321315876.png"
+                alt="Tổng quan kế hoạch"
+                className="w-full h-auto rounded-xl shadow-sm"
+              />
+              <img
+                src="/Frame 1321315877.png"
+                alt="Xem trước kế hoạch"
+                className="w-full h-auto rounded-xl shadow-sm"
+              />
             </div>
           )}
           {activeService === "personal-education" && (
-             <div className="flex flex-col w-full h-full gap-4 p-8">
-                <div className="w-full flex-grow bg-white rounded-lg"></div>
-                <div className="w-full flex-grow bg-white rounded-lg"></div>
-                <div className="flex items-center justify-between px-6 py-2 mt-4 bg-cyan-600 text-white rounded-lg">
-                    <button className="text-sm italic font-light tracking-tight cursor-pointer">
-                        Truy cập thư viện miễn phí
-                    </button>
-                    <span className="text-sm italic font-light tracking-tight">
-                        &gt;&gt;
-                    </span>
+             <div className="flex flex-col w-full h-full gap-4">
+                <div className="w-full flex-grow bg-white rounded-lg">
+                  <img
+                    src="/Frame 1321315874.png"
+                    alt="Tổng quan kế hoạch"
+                    className="w-full h-auto rounded-xl shadow-sm"
+                  />                  
+                </div>
+                <div className="w-full flex-grow bg-white rounded-lg">
+                  <img
+                    src="/Frame 1321315875.png"
+                    alt="Xem trước kế hoạch"
+                    className="w-full h-auto rounded-xl shadow-sm"
+                  />
                 </div>
             </div>
           )}
