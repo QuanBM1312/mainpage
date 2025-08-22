@@ -8,7 +8,7 @@ const menuItems = [
     id: "cong-cu",
     title: "Công cụ tài chính",
     children: [
-      { title: "Lập kế hoạch mua nhà", href: "https://muanha.finful.co/" },
+      { title: "Lập kế hoạch mua nhà", href: "https://planning.finful.co/" },
       { title: "Phân tích chứng khoán", href: "https://global.finful.co/sign-in?redirect_url=https%3A%2F%2Fglobal.finful.co%2Fcourse%2F654b4b6c919baafbb5c4e975%3Ffbclid%3DIwY2xjawGXuPtleHRuA2FlbQIxMAABHVmJVUh1h6PjYXMWcGrc4Rk4_QmPn22qZimfZLo3aj_a-POutj-ma8d90w_aem_j78gg5nee3mqU6GYcU4ItA" },
     ],
   },
@@ -34,16 +34,16 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav className="w-full bg-gray-50 py-4 border-b relative z-10">
+    <nav className="w-full bg-white bg-opacity-80 backdrop-blur-sm sticky top-0 z-50">
       <img
-        src="https://api.builder.io/api/v1/image/assets/TEMP/ba9eabe8ab8575c455d234f4557ff57f96a4f6aa?width=2698"
+        src="/Hero_background.png"
         alt="Hero background"
-        className="box-border object-cover absolute size-full"
+        className="box-border object-cover absolute w-full h-full"
       />
-      <div className="relative flex justify-between items-center max-w-full mx-auto px-4">
+      <div className="relative flex justify-between items-center max-w-full my-2 mx-auto px-4">
         <Link href="/">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/1ba2049967e7298ab7497b6e05b664cf34fd18b1?width=230"
+            src="/finful.png"
             alt="Finful Logo"
             className="h-[33px] w-[115px] max-sm:h-7 max-sm:w-[100px]"
           />
@@ -58,7 +58,7 @@ const Navigation: React.FC = () => {
               onMouseEnter={() => item.children && setOpenDropdown(item.id)}
               onMouseLeave={() => item.children && setOpenDropdown(null)}
             >
-              <Link href={item.href || "#"} className="flex items-center gap-2 text-base font-semibold text-slate-500 hover:text-cyan-600 transition-colors">
+              <Link href={item.href || "#"} target="_blank" className="flex items-center gap-2 text-base font-semibold text-slate-500 hover:text-cyan-600 transition-colors">
                 {item.title}
                 {item.children && (
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,7 +70,7 @@ const Navigation: React.FC = () => {
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div className="bg-white rounded-lg shadow-xl py-2 z-20">
                     {item.children.map((child, index) => (
-                      <Link key={index} href={child.href} className="block px-4 py-2 text-slate-700 hover:bg-gray-100">
+                      <Link key={index} target="_blank" href={child.href} className="block px-4 py-2 text-slate-700 hover:bg-gray-100">
                         {child.title}
                       </Link>
                     ))}
@@ -80,7 +80,7 @@ const Navigation: React.FC = () => {
             </div>
           ))}
 
-          <Link href="https://muanha.finful.co/" className="flex items-center justify-center gap-2.5 px-5 h-11 bg-cyan-600 text-white rounded-lg shadow-sm">
+          <Link href="https://muanha.finful.co/"target="_blank" className="flex items-center justify-center gap-2.5 px-5 h-11 bg-cyan-600 text-white rounded-lg shadow-sm">
             <span className="text-sm font-medium">Lập kế hoạch mua nhà</span>
             <svg width="12" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3">
               <path d="M1.25 5.79529H11.75" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
@@ -123,7 +123,7 @@ const Navigation: React.FC = () => {
                   )}
                 </div>
               ))}
-              <Link href="https://muanha.finful.co/" className="flex items-center justify-center w-full gap-2.5 px-3 py-2 mt-4 h-9 bg-cyan-600 rounded-lg shadow-sm">
+              <Link href="https://muanha.finful.co/" target="_blank" className="flex items-center justify-center w-full gap-2.5 px-3 py-2 mt-4 h-9 bg-cyan-600 rounded-lg shadow-sm">
                 <span className="text-sm font-medium text-white">Lập kế hoạch mua nhà</span>
                 <svg width="12" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3">
                   <path d="M1.25 5.79529H11.75" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>

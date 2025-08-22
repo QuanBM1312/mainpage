@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import FinancialChart from "./FinancialChart";
-import FinancialPlanPreview from "./FinancialPlanPreview";
 import Link from "next/link";
 
 const ServicesSection: React.FC = () => {
@@ -15,7 +13,7 @@ const ServicesSection: React.FC = () => {
       description:
         "Giúp người dùng lập kế hoạch tài chính để mua được căn nhà mơ ước. Chỉ cần nhập thông tin về căn nhà muốn mua và khả năng tài chính, chúng tôi sẽ thiết kế kế hoạch hành động phù hợp.",
       buttonText: "Truy cập Công cụ lập kế hoạch mua nhà",
-      link: "https://muanha.finful.co/", // URL đích
+      link: "https://planning.finful.co/", // URL đích
     },
     {
       id: "corporate-education",
